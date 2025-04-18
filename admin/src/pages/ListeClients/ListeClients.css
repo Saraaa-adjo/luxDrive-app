@@ -1,0 +1,155 @@
+.clients-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.clients-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.clients-header h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.total-clients {
+  background-color: #3498db;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.clients-table-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.clients-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.clients-table th {
+  background-color: #f8fafc;
+  color: #64748b;
+  font-weight: 600;
+  text-align: left;
+  padding: 1.2rem 1.5rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.clients-table td {
+  padding: 1.2rem 1.5rem;
+  border-top: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.client-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.last-name {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.first-name {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.email-cell {
+  word-break: break-all;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.delete-btn {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.delete-btn:hover {
+  background-color: #fecaca;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+.no-clients {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .clients-container {
+      padding: 1rem;
+  }
+
+  .clients-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+  }
+  
+  .clients-header h2 {
+      font-size: 1.4rem;
+  }
+  
+  .total-clients {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+  }
+  
+  .clients-table th {
+      padding: 0.8rem;
+  }
+  
+  .clients-table td {
+      padding: 0.8rem;
+  }
+  
+  .delete-btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+  }
+}

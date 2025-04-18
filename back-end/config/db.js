@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize';
 
 // Configuration pour MySQL
 const sequelize = new Sequelize({
-  database: 'int',    // Nom de votre base MySQL
+  database: 'voiture',    // Nom de votre base MySQL
   username: 'root',              // Utilisateur MySQL
   password: '',                  // Mot de passe MySQL
   host: 'localhost',             // Hôte MySQL
@@ -21,17 +21,17 @@ const sequelize = new Sequelize({
 export const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log('✅ Connecté à la base MySQL "Livraison Repas"');
+    console.log(' Connecté à la base MySQL "Location voiture"');
     
     // Synchronisation des modèles (uniquement en dev)
     if (process.env.NODE_ENV !== 'production') {
       await sequelize.sync({ alter: true });
-      console.log('🔄 Modèles synchronisés');
+      console.log(' Modèles synchronisés');
     }
     
     return sequelize;
   } catch (error) {
-    console.error('❌ Erreur de connexion à MySQL:', error.message);
+    console.error(' Erreur de connexion à MySQL:', error.message);
     process.exit(1);
   }
 };

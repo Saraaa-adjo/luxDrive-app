@@ -2,20 +2,23 @@ import React from 'react'
 import './Navbar.css'
 import {assets} from '../../assets/assets'
 
-
-function Navbar() {
+function Navbar({isAdmin = true}) {
   return (
     <nav className="navbar">
       <div className="navbar-left">
         <img src={assets.logo} alt="Logo" className="logo" />
-        <h2 className="app-title">Partie Administrateur pour les Restaurants</h2>
+        <h1 className="app-title">
+          {isAdmin ? ' Location de Voitures' : 'Louez votre voiture'}
+        </h1>
       </div>
-      <div className="navbar-right">
-        <img src={assets.profile_image} alt="Admin" className="admin-icon" />
-      </div>
+      
+        <input 
+          type="search" 
+          placeholder="Rechercher un client, une voiture..." 
+          className="search-bar"
+        />
     </nav>
   )
 }
 
 export default Navbar
-

@@ -1,38 +1,101 @@
 .sidebar {
-    width: 220px;
-    height: 100vh;
-    background-color: #1f2937; /* gris foncé */
-    padding: 20px;
-    color: white;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  width: 200px;
+  height: 100vh;
+  background-color: #000000;
+  color: #ecf0f1;
+  position: fixed;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-section {
+  color: #95a5a6;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px 20px 5px;
+  font-weight: 600;
+}
+
+.menu-item {
+  margin: 5px 0;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.menu-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.menu-link.active {
+  background-color: rgba(52, 152, 219, 0.2);
+  border-left: 4px solid #3498db;
+  color: #3498db;
+}
+
+.menu-link .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu-link span {
+  font-size: 0.9rem;
+}
+
+
+/* Version mobile */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 70px;
+    overflow: hidden;
   }
   
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .sidebar-header,
+  .menu-section,
+  .menu-link span {
+    display: none;
   }
   
-  .sidebar li {
-    margin-bottom: 20px;
+  .menu-link {
+    justify-content: center;
+    padding: 15px 0;
   }
   
-  .nav-link {
-    display: block;
-    padding: 12px 20px;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: background-color 0.2s;
+  .menu-link .icon {
+    margin-right: 0;
   }
-  
-  .nav-link:hover {
-    background-color: #374151;
-  }
-  
-  .nav-link.active {
-    background-color: #2563eb; /* bleu */
-    color: white;
-  }
-  
+}
+

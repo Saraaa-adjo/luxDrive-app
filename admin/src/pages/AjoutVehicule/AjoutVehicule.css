@@ -1,0 +1,97 @@
+.ajout-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ajout-container h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  
+  .image-upload {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .preview-image {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px dashed #bdc3c7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .preview-image:hover {
+    border-color: #3498db;
+    opacity: 0.8;
+  }
+  
+  .ajout-container form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .ajout-container input,
+  .ajout-container textarea,
+  .ajout-container select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+  }
+  
+  .ajout-container input:focus,
+  .ajout-container textarea:focus,
+  .ajout-container select:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .ajout-container textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .ajout-container button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+  
+  .ajout-container button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Version mobile */
+  @media (max-width: 768px) {
+    .ajout-container {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+    
+    .ajout-container h2 {
+      font-size: 1.5rem;
+    }
+    
+    .preview-image {
+      height: 150px;
+    }
+  }
