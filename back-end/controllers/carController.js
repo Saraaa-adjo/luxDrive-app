@@ -34,7 +34,9 @@ const listCars = async (req, res) => {
 
 const removeCar = async (req, res) => {
     try {
-        const car = await CarModel.findByPk(req.body.id);
+        const id = req.params.id; // 🔥 important : lire depuis params
+        const car = await CarModel.findByPk(id);
+
         if (!car) {
             return res.status(404).json({ success: false, message: "Voiture non trouvée" });
         }
@@ -50,6 +52,7 @@ const removeCar = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
+
 
 const getAvailableCars = async (req, res) => {
     try {
@@ -67,5 +70,26 @@ const getAvailableCars = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
+const updateDisponibilite = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { isAvailable } = req.body;
 
-export { addCar, listCars, removeCar, getAvailableCars };
+        const car = await CarModel.findByPk(id);
+
+        if (!car) {
+            return res.status(404).json({ success: false, message: "Voiture non trouvée" });
+        }
+
+        car.isAvailable = isAvailable;
+        await car.save();
+
+        res.json({ success: true, message: "Disponibilité mise à jour", data: car });
+    } catch (error) {
+        console.error("Erreur updateDisponibilite:", error);
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
+
+export { addCar, listCars, removeCar, getAvailableCars ,updateDisponibilite };

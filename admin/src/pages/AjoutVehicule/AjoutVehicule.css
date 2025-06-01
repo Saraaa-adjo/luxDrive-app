@@ -8,7 +8,7 @@
   }
   
   .ajout-container h2 {
-    color: #2c3e50;
+    color: #282d32;
     margin-bottom: 1.5rem;
     text-align: center;
     font-size: 1.8rem;
@@ -54,7 +54,7 @@
   .ajout-container input:focus,
   .ajout-container textarea:focus,
   .ajout-container select:focus {
-    border-color: #3498db;
+    border-color: #426074;
     outline: none;
   }
   
@@ -64,8 +64,8 @@
   }
   
   .ajout-container button {
-    background-color: #3498db;
-    color: white;
+    background-color: #284355;
+    color: rgb(106, 70, 70);
     border: none;
     padding: 1rem;
     font-size: 1rem;
@@ -95,3 +95,21 @@
       height: 150px;
     }
   }
+
+  /* AjoutVehicule.css */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}

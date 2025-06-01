@@ -1,5 +1,5 @@
 .recherche-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 2rem auto;
     padding: 0 1rem;
   }
@@ -13,7 +13,7 @@
   
   .search-form {
     background: white;
-    padding: 1.5rem;
+    padding: 2.5rem;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     margin-bottom: 2rem;
@@ -43,7 +43,7 @@
   
   .search-form button {
     grid-column: 1 / -1;
-    background-color: #3498db;
+    background-color: #4580a7;
     color: white;
     border: none;
     padding: 0.8rem;
@@ -65,8 +65,8 @@
   
   .results-container h3 {
     color: #2c3e50;
-    margin: 1.5rem 0;
-    font-size: 1.3rem;
+    margin: 1.1rem 0;
+    font-size: 1.5rem;
   }
   
   .cars-grid {
@@ -76,7 +76,7 @@
   }
   
   .car-card {
-    background: white;
+    background: rgb(101, 110, 147);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -100,7 +100,7 @@
   
   .car-info h4 {
     margin: 0 0 0.5rem;
-    color: #2c3e50;
+    color: #313d49;
     font-size: 1.2rem;
   }
   
@@ -114,14 +114,14 @@
   .car-price {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #27ae60;
+    color: #000000;
     margin-bottom: 1rem;
   }
   
   .book-button {
     width: 100%;
     padding: 0.7rem;
-    background-color: #27ae60;
+    background-color: #338f59;
     color: white;
     border: none;
     border-radius: 5px;

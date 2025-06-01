@@ -38,7 +38,7 @@ function RechercheVoitures({ url }) {
       
       <form onSubmit={handleSearch} className="search-form">
         <div className="form-group">
-          <label>Date de début</label>
+      
           <input
             type="date"
             name="startDate"
@@ -49,7 +49,7 @@ function RechercheVoitures({ url }) {
         </div>
         
         <div className="form-group">
-          <label>Date de fin</label>
+          
           <input
             type="date"
             name="endDate"
@@ -60,13 +60,12 @@ function RechercheVoitures({ url }) {
         </div>
         
         <div className="form-group">
-          <label>Marque (optionnel)</label>
+          <label>Marque</label>
           <input
             type="text"
             name="brand"
             value={searchParams.brand}
             onChange={handleInputChange}
-            placeholder="Toutes marques"
           />
         </div>
         
@@ -86,7 +85,7 @@ function RechercheVoitures({ url }) {
                   <h4>{car.brand} {car.model}</h4>
                   <p>{car.description}</p>
                   <div className="car-price">
-                    {car.dailyPrice} €/jour
+                    {car.dailyPrice} FCFA/jour
                   </div>
                   <button className="book-button">
                     Réserver maintenant

@@ -27,7 +27,7 @@ function Sidebar() {
         <li className="menu-item">
           <NavLink to="/admin/recherches" className={({ isActive }) => isActive ? 'menu-link active' : 'menu-link'}>
             <i className="icon list-icon"></i>
-            <span>Recherche voiture</span>
+            <span>Rechercher une voiture</span>
           </NavLink>
         </li>
 
@@ -51,18 +51,15 @@ function Sidebar() {
         <li className="menu-item">
           <NavLink to="/admin/locations/nouvelle" className={({ isActive }) => isActive ? 'menu-link active' : 'menu-link'}>
             <i className="icon rent-icon"></i>
-            <span>Nouvelle location</span>
+            <span>Ajouter une location</span>
           </NavLink>
         </li>
         <li className="menu-item">
           <NavLink to="/admin/locations" className={({ isActive }) => isActive ? 'menu-link active' : 'menu-link'}>
             <i className="icon list-icon"></i>
-            <span>Locations en cours</span>
+            <span>Liste des locations en cours</span>
           </NavLink>
         </li> 
-        <li><a href="http://127.0.0.1:5500/admin/src/pages/Commande/index.html">    ______PRESENTATION_______
-            </a>
-        </li>
         
       </ul>
     </div>

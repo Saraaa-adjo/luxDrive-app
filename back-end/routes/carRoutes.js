@@ -4,7 +4,8 @@ import {
   addCar, 
   listCars, 
   removeCar,
-  getAvailableCars
+  getAvailableCars,
+  updateDisponibilite
 } from "../controllers/carController.js";
 import multer from "multer";
 
@@ -22,5 +23,6 @@ carRouter.post("/add", upload.single("image"), addCar);
 carRouter.get("/list", listCars);
 carRouter.get("/available", getAvailableCars);
 carRouter.delete("/:id", removeCar);
+carRouter.put("/:id/disponibilite", updateDisponibilite); 
 
 export default carRouter;

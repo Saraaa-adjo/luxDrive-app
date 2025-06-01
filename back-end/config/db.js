@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize';
 
 // Configuration pour MySQL
 const sequelize = new Sequelize({
-  database: 'voiture',    // Nom de votre base MySQL
+  database: 'voiture3',    // Nom de votre base MySQL
   username: 'root',              // Utilisateur MySQL
   password: '',                  // Mot de passe MySQL
   host: 'localhost',             // Hôte MySQL

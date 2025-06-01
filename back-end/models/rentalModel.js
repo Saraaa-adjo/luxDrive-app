@@ -29,7 +29,7 @@ const Rental = sequelize.define('Rental', {
     }
   },
   status: {
-    type: DataTypes.ENUM('active', 'completed', 'cancelled', 'early_return'),
+    type: DataTypes.ENUM('active', 'terminé', 'cancelled', 'early_return'),
     defaultValue: 'active'
   },
   actualEndDate: {

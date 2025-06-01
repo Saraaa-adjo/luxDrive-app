@@ -8,7 +8,7 @@ function Navbar({isAdmin = true}) {
       <div className="navbar-left">
         <img src={assets.logo} alt="Logo" className="logo" />
         <h1 className="app-title">
-          {isAdmin ? ' Location de Voitures' : 'Louez votre voiture'}
+          {isAdmin ? ' LuxDrive' : 'Louez votre voiture'}
         </h1>
       </div>
       

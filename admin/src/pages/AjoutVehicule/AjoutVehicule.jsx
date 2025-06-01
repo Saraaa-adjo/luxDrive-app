@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import './AjoutVehicule.css';
 import { assets } from '../../assets/assets';
 import axios from "axios";
+import { createCar } from '../../Pattern/carFactory';
 
 function AjoutVehicule({url}) {
   const [preview, setPreview] = useState(assets.upload_area);
   const [image, setImage] = useState(null);
+  const [vehicleType, setVehicleType] = useState('standard');
   const [data, setData] = useState({
     model: '',
     brand: '',
@@ -29,11 +31,18 @@ function AjoutVehicule({url}) {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
+    // Création de l'objet voiture avec la Factory
+    const carData = {
+      ...data,
+      ...createCar(vehicleType, data) // Fusion des données de base et des spécificités
+    };
+
     const formData = new FormData();
-    formData.append("model", data.model);
-    formData.append("brand", data.brand);
-    formData.append("dailyPrice", data.dailyPrice);
-    formData.append("description", data.description);
+    formData.append("model", carData.model);
+    formData.append("brand", carData.brand);
+    formData.append("dailyPrice", carData.dailyPrice);
+    formData.append("description", carData.description);
+    formData.append("category", carData.category); // Champ ajouté par la Factory
     if (image) formData.append("image", image);
 
     try {
@@ -51,6 +60,7 @@ function AjoutVehicule({url}) {
           dailyPrice: '',
           description: ''
         });
+        setVehicleType('standard');
         setPreview(assets.upload_area);
         setImage(null);
       }
@@ -64,6 +74,7 @@ function AjoutVehicule({url}) {
     <div className="ajout-container">
       <h2>Ajouter un nouveau véhicule</h2>
       <form onSubmit={onSubmitHandler}>
+        {/* Section image (inchangée) */}
         <div className="image-upload">
           <label htmlFor="file-input">
             <img src={preview} alt="Preview" className="preview-image" />
@@ -77,6 +88,7 @@ function AjoutVehicule({url}) {
           />
         </div>
 
+        {/* Champs existants */}
         <input
           type="text"
           name="model"
@@ -111,6 +123,20 @@ function AjoutVehicule({url}) {
           onChange={onChangeHandler}
           required
         />
+
+        {/* Nouveau sélecteur - à placer où vous voulez */}
+        <div className="form-group">
+          <label>Type de véhicule :</label>
+          <select
+            value={vehicleType}
+            onChange={(e) => setVehicleType(e.target.value)}
+            required
+          >
+            <option value="standard">Standard</option>
+            <option value="premium">Premium</option>
+            <option value="electric">Électrique</option>
+          </select>
+        </div>
 
         <button type="submit">Ajouter</button>
       </form>

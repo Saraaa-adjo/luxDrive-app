@@ -3,6 +3,7 @@ import Rental from "../models/rentalModel.js";
 import CarModel from "../models/CarModel.js";
 import ClientModel from "../models/clientModel.js";
 
+
 const createRental = async (req, res) => {
     try {
         const { carId, clientId, startDate, endDate } = req.body;
@@ -22,7 +23,8 @@ const createRental = async (req, res) => {
         // Calcul du prix total
         const days = (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24);
         const totalPrice = days * car.dailyPrice;
-
+        
+    
         const rental = await Rental.create({
             carId,
             clientId,
@@ -35,6 +37,8 @@ const createRental = async (req, res) => {
         // Mettre à jour la disponibilité de la voiture
         await car.update({ isAvailable: false });
 
+        notify('LOCATION_CREATED', { clientId, carId });
+        
         res.status(201).json({ 
             success: true, 
             message: "Location créée",
@@ -84,6 +88,7 @@ const processEarlyReturn = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
+
 // controllers/rentalController.js
 const getAllRentals = async (req, res) => {
     try {
@@ -133,4 +138,59 @@ const getAllRentals = async (req, res) => {
       });
     }
   };
-  export { createRental, processEarlyReturn, getAllRentals };
+  const terminateRental = async (req, res) => {
+  console.log('Début de terminateRental'); // Log 1
+  try {
+    const { id } = req.params;
+    console.log('ID de location:', id); // Log 2
+
+    const rental = await Rental.findByPk(id, {
+      include: [{
+        model: CarModel, // <-- très important
+        as: 'Car',
+        required: true
+      }]
+    });
+
+    console.log('Location trouvée:', rental ? rental.id : 'null'); // Log 3
+
+    if (!rental) {
+      console.log('Location non trouvée');
+      return res.status(404).json({ success: false, message: "Location non trouvée" });
+    }
+
+    if (rental.status === 'terminé') {
+      console.log('Location déjà terminée');
+      return res.status(400).json({ success: false, message: "Location déjà terminée" });
+    }
+
+    console.log('Mise à jour de la location...');
+    const updatedRental = await rental.update({
+      status: 'terminé',
+      actualEndDate: new Date()
+    });
+
+    console.log('Mise à jour de la voiture...');
+    await rental.Car.update({ isAvailable: true }); // 🔧 ici aussi
+
+    console.log('Terminaison réussie');
+    res.json({ 
+      success: true, 
+      message: "Location terminée avec succès",
+      data: updatedRental
+    });
+  } catch (error) {
+    console.error("Erreur complète:", {
+      message: error.message,
+      stack: error.stack,
+      original: error.original
+    });
+    res.status(500).json({ 
+      success: false, 
+      message: "Erreur serveur",
+      error: error.message 
+    });
+  }
+};
+
+  export { createRental, processEarlyReturn, getAllRentals, terminateRental };
