@@ -11,7 +11,13 @@ const port = 4000;
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+  origin: 'https://lux-drive-app-ffw8.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  
+}
+));
 
 // Connexion à la base de données
 connectDB();
