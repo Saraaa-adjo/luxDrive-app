@@ -2,11 +2,11 @@ import { Sequelize } from 'sequelize';
 
 // Configuration pour MySQL
 const sequelize = new Sequelize({
-  database: 'voiture3',    // Nom de votre base MySQL
-  username: 'root',              // Utilisateur MySQL
-  password: '',                  // Mot de passe MySQL
-  host: 'localhost',             // Hôte MySQL
-  port: 3306,                    // Port MySQL
+  database: process.env.DB_NAME,    // Nom de votre base MySQL
+  username: process.env.DB_USER,              // Utilisateur MySQL
+  password:  process.env.DB_PASS,                  // Mot de passe MySQL
+  host: process.env.DB_HOST,             // Hôte MySQL
+  port: process.env.DB_PORT,                    // Port MySQL
   dialect: 'mysql',              // Dialecte MySQL
   logging: false,                // Désactive les logs SQL
   pool: {
@@ -21,7 +21,7 @@ const sequelize = new Sequelize({
 export const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log(' Connecté à la base MySQL "Location voiture"');
+    console.log(' Connecté à la base MySQL "Railway" avec succès');
     
     // Synchronisation des modèles (uniquement en dev)
     if (process.env.NODE_ENV !== 'production') {
