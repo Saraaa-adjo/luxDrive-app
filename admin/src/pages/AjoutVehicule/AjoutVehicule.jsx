@@ -4,9 +4,7 @@ import { assets } from '../../assets/assets';
 import axios from "axios";
 import { createCar } from '../../Pattern/carFactory';
 
-const API_URL = import.meta.env.VITE_API_URL
-
-function AjoutVehicule({url = API_URL}) {
+function AjoutVehicule({url}) {
   const [preview, setPreview] = useState(assets.upload_area);
   const [image, setImage] = useState(null);
   const [vehicleType, setVehicleType] = useState('standard');

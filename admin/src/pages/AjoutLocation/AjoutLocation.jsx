@@ -3,9 +3,7 @@ import axios from "axios";
 import "./AjoutLocation.css";
 import { pricingStrategies } from "../../Pattern/pricingStrategies";
 
-const API_URL = import.meta.env.VITE_API_URL
-
-function AjoutLocation({ url= API_URL }) {
+function AjoutLocation({ url }) {
   const [clients, setClients] = useState([]);
   const [voitures, setVoitures] = useState([]);
   const [location, setLocation] = useState({

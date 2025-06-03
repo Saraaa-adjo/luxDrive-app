@@ -14,7 +14,7 @@ import { subscribe } from './Pattern/notifications';
 import './index.css';
 
 function App() {
-  const Url = import.meta.env.VITE_API_URL;
+  const Url = "http://localhost:4000";
   const [loggedIn, setLoggedIn] = useState(false);
 
   // Subscribe to notifications

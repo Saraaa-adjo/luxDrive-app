@@ -3,9 +3,7 @@ import axios from 'axios';
 import './RechercheVoitures.css';
 import { assets } from '../../assets/assets';
 
-const API_URL = import.meta.env.VITE_API_URL
-
-function RechercheVoitures({ url = API_URL}) {
+function RechercheVoitures({ url }) {
   const [cars, setCars] = useState([]);
   const [searchParams, setSearchParams] = useState({
     startDate: '',
