@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './GestionLocations.css'
 
-function GestionLocations({ url }) {
+const API_URL = import.meta.env.VITE_API_URL
+
+function GestionLocations({ url = API_URL }) {
   const [locations, setLocations] = useState([])
   const [loading, setLoading] = useState(true)
 

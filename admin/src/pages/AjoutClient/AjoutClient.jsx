@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import './AjoutClient.css'
 
-function AjoutClient({ url }) {
+const API_URL = import.meta.env.VITE_API_URL
+
+function AjoutClient({ url = API_URL}) {
   const [client, setClient] = useState({
     firstName: '',
     lastName: '',

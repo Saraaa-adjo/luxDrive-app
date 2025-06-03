@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './ListeClients.css'
 
-function ListeClients({ url }) {
+const API_URL = import.meta.env.VITE_API_URL
+
+function ListeClients() {
   const [clients, setClients] = useState([])
   const [loading, setLoading] = useState(true)
 
   const fetchClients = async () => {
     try {
-      const res = await axios.get(`${url}/api/clients`)
+      const res = await axios.get(`${API_URL }/api/clients`)
       setClients(res.data.data)
     } catch (error) {
       console.error("Erreur:", error)
@@ -20,7 +22,7 @@ function ListeClients({ url }) {
   const supprimerClient = async (id) => {
     if (window.confirm("Supprimer définitivement ce client ?")) {
       try {
-        await axios.delete(`${url}/api/clients/${id}`)
+        await axios.delete(`${API_URL }/api/clients/${id}`)
         fetchClients()
       } catch (error) {
         console.error("Erreur:", error)

@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './ListeVoitures.css'
 
-function ListeVoitures({ url }) {
+const API_URL = import.meta.env.VITE_API_URL
+
+
+function ListeVoitures({ url = API_URL }) {
   const [voitures, setVoitures] = useState([])
   const [loading, setLoading] = useState(true)
 
